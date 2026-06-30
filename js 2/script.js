@@ -217,26 +217,26 @@ event lishener add karna
 //     val.target.classList.toggle("ul") ;
 // }) ; 
 
-let a = document.querySelector(".a") ; 
-let b = document.querySelector(".b") ; 
-let c = document.querySelector(".c") ; 
-let button = document.querySelector("button") ; 
+// let a = document.querySelector(".a") ; 
+// let b = document.querySelector(".b") ; 
+// let c = document.querySelector(".c") ; 
+// let button = document.querySelector("button") ; 
 
-button.addEventListener("click" , function() {
-    console.log("button clicked") ; 
-}) ;
+// button.addEventListener("click" , function() {
+//     console.log("button clicked") ; 
+// }) ;
 
-c.addEventListener("click" , function() {
-    console.log("c clicked") ; 
-}) ;
+// c.addEventListener("click" , function() {
+//     console.log("c clicked") ; 
+// }) ;
 
-b.addEventListener("click" , function() {
-    console.log("b clicked") ; 
-}) ;
+// b.addEventListener("click" , function() {
+//     console.log("b clicked") ; 
+// }) ;
 
-a.addEventListener("click" , function() {
-    console.log("a clicked") ;
-}) ; 
+// a.addEventListener("click" , function() {
+//     console.log("a clicked") ;
+// }) ; 
 
 
 // IMPORTANT : 
@@ -248,12 +248,96 @@ a.addEventListener("click" , function() {
 
 // aur pahle phase 1 hoti hai
 
+// let input = document.querySelector("input") ; 
+
+// input.addEventListener("input" , function(value) {
+//     console.log(input.value.length) ; 
+//     let span = document.querySelector("span") ; 
+//     span.textContent = input.value.length ;
+// }) ; 
+
+// ahve to limit the char ; 
+// input.addEventListener("input" , function(value) {
+//     let span = document.querySelector("span") ; 
+//     let left_count = 20 - input.value.length ;
+//     span.textContent = left_count ; 
+//     if(left_count < 0) {
+//         span.style.color = "red" ;
+//     }
+//     if(left_count >= 0) {
+//         span.style.color = "black" ;
+//     }
+    
+// }) ; 
+
+// let timer = setTimeout(function (){
+//     console.log("hello") ;
+// } , 3000) ; 
+// let val = 0 ; 
+// let timer1 = setInterval(function(){
+//     console.log("world") ;
+//     val++ ;
+// } , 1) ; 
+
+// clearTimeout(timer) ; 
+// clearInterval(timer1) ; 
+
+// // making of counter 
+// let count = 0 ; 
+// let counter = setInterval(function() {
+//     console.log("count = " , count) ; 
+//     count++ ; 
+//     if(count > 20) {
+//         clearInterval(counter) ; 
+//     }
+// } , 1000) ; 
+
+
+// downloading bar 
+let h2 = document.querySelector("#h2");
+let percent = document.querySelector("#percent");
+let start = document.querySelector("#start");
+let progress = document.querySelector("#progress");
+let card = document.querySelector(".card") ; 
+
+start.addEventListener("click", function () {
+    h2.textContent = "Downloading...";
+    start.style.display = "none";
+    let count = 0 ;
+    function run(speed) {
+        let interval = setInterval(() => {
+            count++ ;
+            progress.style.width = count + "%" ;
+            percent.textContent = count + "%" ;
+            if (count === 60) {
+                clearInterval(interval);
+                run(40) ;
+            }
+            if (count === 80) {
+                clearInterval(interval) ;
+                run(80) ;
+            }
+            if (count >= 100) {
+                clearInterval(interval);
+                h2.textContent = "Downloaded";
+                card.classList.add("success");
+            }
+        }, speed);
+    }
+    run(10);
+});
 
 
 
+// localStorage -> browser me data permanently store karta hai.
+// Browser band ya restart hone par bhi data rehta hai.
 
+// sessionStorage -> data temporary store karta hai.
+// Tab ya browser close karne par data delete ho jata hai.
 
-
+// cookies -> chhota amount of data store karne ke liye use hoti hain.
+// Cookies browser me save hoti hain aur server-client communication
+// me bhi use ki ja sakti hain.
 
 
 

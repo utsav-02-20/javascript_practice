@@ -387,6 +387,116 @@ body{
     box-sizing: border-box;
 }
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+}
+.card{
+    width:300px;
+    padding:20px;
+    border:2px solid red;
+    border-radius:10px;
+    animation:borderGlow 1s linear infinite alternate;
+    background-color: color(from #f3525279 srgb r g b);
+}
+
+@keyframes borderGlow{
+    from{
+        box-shadow:0 0 5px red;
+    }
+    to{
+        box-shadow:0 0 20px red;
+    }
+}
+.progress-box{
+    width:100%;
+    height:12px;
+    background:#ffffff;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:rgb(244, 76, 64);
+    transition:0.3s;
+}
+#start{
+    padding:12px 24px;
+    border:2px solid #32f8357c;
+    background:transparent;
+    color:#19f524b5;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#start:hover{
+    box-shadow:
+        0 0 10px #35ff5d,
+        0 0 20px #35ff5d,
+        0 0 40px #35ff5d;
+}
+.card h2{
+    text-align:center;
+    color:white;
+}
+#percent{
+    display:block;
+    text-align:center;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+#start{
+    display:block;
+    margin:0 auto;  
+    padding:12px 24px;
+    border:2px solid #32f8357c;
+    background:transparent;
+    color:#19f524b5;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+.success{
+    border:2px solid #22c55e;
+    background:rgba(34, 197, 94, 0.25);
+    animation:greenGlow 1s linear infinite alternate;
+}
+
+.success .progress{
+    background:#22c55e;
+}
+
+@keyframes greenGlow{
+    from{
+        box-shadow:0 0 10px #22c55e;
+    }
+    to{
+        box-shadow:
+            0 0 20px #22c55e,
+            0 0 40px #22c55e,
+            0 0 60px #22c55e;
+    }
+} 
+
 .a{
     width: 400px;
     height: 400px;
@@ -565,13 +675,30 @@ button{
     </ul>
 </div> -->
 
-<div class = "a" >
+<!-- <div class = "a" >
     <div class = "b" >
         <div class = "c">
             <button>Click me</button>
         </div>
     </div>
+</div> -->
+<!-- 
+<input type = "text" placeholder="write anything"> -->
+<!-- <h1>Total Character : <span>0</span></h1> -->
+<!-- <h1>Total Character left: <span>20</span></h1> -->
+
+ <div class="card">
+    <h2 id = "h2">Downloading File</h2>
+
+    <div class="progress-box">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <span id="percent">0%</span>
+
+    <button id="start">Start Download</button>
 </div>
+
 
 
 
